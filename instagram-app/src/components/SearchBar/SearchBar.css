@@ -1,0 +1,26 @@
+.search-container {
+  background-color: red;
+  height: 5%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.instagram-logo {
+  max-width: auto;
+  height: 50px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fab fa-instagram {
+  font-size: 200px;
+}
