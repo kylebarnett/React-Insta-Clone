@@ -1,5 +1,24 @@
 .post-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   max-width: 100%;
+}
+
+.thumbnail {
+  max-width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-right: 5px;
+}
+
+.pic-and-username {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.username-pic{
+  max-width: 600px;
+  height: auto;
 }

@@ -1,13 +1,17 @@
 import React from 'react';
 import Comment from './Comment';
-
+import './CommentSection.css';
 
 const CommentSection = props => {
-  console.log(props.post)
   return (
-    <div>
+    <div className="comment-section-container">
+      <div className="comment-icons">
+        <i className="far fa-heart"></i>
+        <i className="far fa-comment"></i>
+      </div>
+      <p className="comment-likes">{props.post.likes}</p>
       {props.post.comments.map(comment => (
-        <Comment comment={comment} />
+        <Comment post={props.post} comment={comment} />
       ))}
     </div>
   )

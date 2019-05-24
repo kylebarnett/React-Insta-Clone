@@ -7,9 +7,11 @@ const PostContainer = props => {
     <div className="post-container">
       {props.posts.map(post => (
         <div key={post.username}>
-          <h1>{post.username}</h1>
-          <img src={post.thumbnailUrl} alt="thumbnail" />
-          <img src={post.imageUrl} alt="pic" />
+          <div className="pic-and-username">
+            <img className="thumbnail" src={post.thumbnailUrl} alt="thumbnail" />
+            <h5>{post.username}</h5>
+          </div>
+          <img className="username-pic" src={post.imageUrl} alt="pic" />
           <CommentSection post={post} />
         </div>
       ))}

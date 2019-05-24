@@ -1,0 +1,29 @@
+.comment-section-container {
+  padding: 10px;
+}
+
+.comment-icons {
+  display: flex;
+  width: 8%;
+  justify-content: space-between;
+}
+
+.comment-likes {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.comments {
+  display: flex
+}
+
+.single-username {
+  margin-right: 5px;
+  font-weight: bold;
+  color: navy;
+  font-size: 14px;
+}
+
+.single-text {
+  font-size: 14px;
+}

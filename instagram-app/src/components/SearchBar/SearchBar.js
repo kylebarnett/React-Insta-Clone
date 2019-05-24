@@ -7,9 +7,12 @@ const SearchBar = () => {
     <div className="search-container">
       <div className="search">
         <img className="instagram-logo" src={logo} alt="instagram logo" />
-      </div>
-      <div className="input">
-        <input placeholder="search" />
+        <input className="input" placeholder="search" />
+        <div className="icon-container">
+          <i className="far fa-compass"></i>
+          <i className="far fa-heart"></i>
+          <i className="far fa-user"></i>
+        </div>
       </div>
     </div>
   )

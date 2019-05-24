@@ -1,5 +1,5 @@
 .search-container {
-  background-color: red;
+  /* background-color: red; */
   height: 5%;
   width: 100%;
   margin: 0 auto;
@@ -10,17 +10,22 @@
   align-items: center;
 }
 
+.input {
+  text-align: center;
+  margin-left: 65px;
+}
+
 .instagram-logo {
   max-width: auto;
   height: 50px;
 }
 
-.input {
+.icon-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  justify-content: flex-end;
 }
 
-.fab fa-instagram {
-  font-size: 200px;
+far fa-compass {
+  max-height: auto;
 }
