@@ -15,7 +15,7 @@
 .pic-and-username {
   display: flex;
   align-items: center;
-  padding: 10px;
+  margin-left: 10px;
 }
 
 .username-pic{

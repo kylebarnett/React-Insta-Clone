@@ -1,21 +1,38 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
+import PropTypes from 'prop-types';
 import './PostContainer.css';
 
 const PostContainer = props => {
   return (
     <div className="post-container">
-      {props.posts.map(post => (
+      {props.posts.map((post, index) => (
         <div key={post.username}>
           <div className="pic-and-username">
             <img className="thumbnail" src={post.thumbnailUrl} alt="thumbnail" />
             <h5>{post.username}</h5>
           </div>
           <img className="username-pic" src={post.imageUrl} alt="pic" />
-          <CommentSection post={post} />
+          <CommentSection
+            post={post}
+            index={index}
+            handleChange={props.handleChange}
+            addNewComment={props.addNewComment}
+            text={props.text}
+            heartIncrement={props.heartIncrement}
+          />
         </div>
       ))}
     </div>
+  )
+}
+
+PostContainer.propTypes = {
+  post: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.string.isRequired,
+      thumbnailUrl: PropTypes.string.isRequired
+    })
   )
 }
 
