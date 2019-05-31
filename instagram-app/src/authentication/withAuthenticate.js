@@ -7,28 +7,56 @@ const withAuthenticate = (PostsPage) => (Login) =>
     constructor(props) {
       super(props)
       this.state = {
-        loggedIn: false
+        loggedIn: false,
+        username: '',
+        password: '',
       }
     }
 
     componentDidMount() {
-
+      if (localStorage.getItem('user')) {
+        this.setState({
+          loggedIn: true
+        }, () => console.log(this.state))
+      }
+    }
+    login = e => {
+      e.preventDefault();
+      localStorage.setItem('user', this.state.username)
+      this.setState({
+        loggedIn: true
+      })
+    }
+    handleLoginChange = e => {
+      this.setState({
+        [e.target.name]: e.target.value
+      })
     }
     render() {
+      if (this.state.loggedIn)
+        return (
+          <div>
+            <PostsPage
+              posts={this.props.posts}
+              handleChange={this.props.handleChange}
+              addNewComment={this.props.addNewComment}
+              text={this.props.text}
+              heartIncrement={this.props.heartIncrement}
+              search={this.props.search}
+            />
+          </div>
+        )
       return (
         <div>
-          <PostsPage
-            posts={this.props.posts}
-            handleChange={this.props.handleChange}
-            addNewComment={this.props.addNewComment}
-            text={this.props.text}
-            heartIncrement={this.props.heartIncrement}
-            search={this.props.search}
+          < Login
+            handleLoginChange={this.handleLoginChange}
+            login={this.login}
+            username={this.state.username}
+            password={this.state.password}
           />
-          <Login />
-        </div>
+        </div >
       )
     }
   }
 
-export default withAuthenticate(PostsPage)(Login)
+export default withAuthenticate 
