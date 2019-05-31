@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './CommentSection.css';
 
 class Comment extends React.Component {

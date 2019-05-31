@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './PostContainer.css';
 
 const PostContainer = props => {
+  console.log(props)
   return (
     <div className="post-container">
       {props.posts.map((post, index) => (

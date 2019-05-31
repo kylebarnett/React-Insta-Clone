@@ -1,8 +1,10 @@
 import React from 'react';
 import './App.css';
 import dummyData from './dummy-data';
-import PostContainer from './components/PostContainer/PostContainer';
-import SearchBar from './components/SearchBar/SearchBar';
+import PostsPage from './components/PostContainer/PostsPage';
+import Login from './components/Login/Login';
+import withAuthenticate from './authentication/withAuthenticate';
+
 
 class App extends React.Component {
   constructor() {
@@ -55,34 +57,31 @@ class App extends React.Component {
     })
   }
 
-  filterUsername = (e, index) => {
-    e.preventDefault();
-    this.setState({
-      search: '',
-      posts: this.state.posts.filter((post, index) => {
-        post.username = this.state.search
-      })
-    })
-  }
+  // filterUsername = e => {
+  //   e.preventDefault();
+  //   this.setState({
+  //     search: '',
+  //     posts: this.state.posts.filter((post, index) => {
+  //       return post.username = this.state.search
+  //     })
+  //   })
+  // }
   render() {
     return (
       <div className="App">
-        <SearchBar
-          index={this.state.index}
-          filterUsername={this.filterUsername}
-          search={this.state.search}
-          handleChange={this.handleChange}
-        />
-        <PostContainer
+        <ComponentFromWithAuthenticate
           posts={this.state.posts}
           handleChange={this.handleChange}
           addNewComment={this.addNewComment}
           text={this.state.text}
           heartIncrement={this.heartIncrement}
+          search={this.state.search}
         />
       </div>
     );
   }
 }
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(Login)
 
 export default App;
