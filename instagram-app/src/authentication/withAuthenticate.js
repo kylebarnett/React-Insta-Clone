@@ -1,6 +1,7 @@
 import React from 'react';
 import PostsPage from '../components/PostContainer/PostsPage';
 import Login from '../components/Login/Login';
+import PropTypes from 'prop-types';
 
 const withAuthenticate = (PostsPage) => (Login) =>
   class extends React.Component {
@@ -41,6 +42,7 @@ const withAuthenticate = (PostsPage) => (Login) =>
               handleChange={this.props.handleChange}
               addNewComment={this.props.addNewComment}
               text={this.props.text}
+              filterUsername={this.props.filterUsername}
               heartIncrement={this.props.heartIncrement}
               search={this.props.search}
             />
@@ -58,5 +60,9 @@ const withAuthenticate = (PostsPage) => (Login) =>
       )
     }
   }
+
+  withAuthenticate.propTypes = {
+    posts: PropTypes.arrayOf(PropTypes.number)
+  } 
 
 export default withAuthenticate 

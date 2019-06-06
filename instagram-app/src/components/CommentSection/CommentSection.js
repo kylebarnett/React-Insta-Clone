@@ -1,16 +1,32 @@
 import React from 'react';
 import Comment from './Comment';
 import './CommentSection.css';
+import styled from 'styled-components';
+
+const CommentSectionContainer = styled.div`
+  padding: 10px;
+`;
+
+const CommentIcons = styled.div`
+  display: flex;
+  width: 8%;
+  justify-content: space-between;
+`;
+
+const CommentLikes = styled.p`
+  font-weight: bold;
+  font-size: 14px;
+`;
 
 class CommentSection extends React.Component {
   render() {
     return (
-      <div className="comment-section-container">
-        <div className="comment-icons">
+      <CommentSectionContainer>
+        <CommentIcons>
           <i onClick={(e) => this.props.heartIncrement(e, this.props.index)} className="far fa-heart"></i>
           <i className="far fa-comment"></i>
-        </div>
-        <p className="comment-likes">{this.props.post.likes}</p>
+        </CommentIcons>
+        <CommentLikes>{this.props.post.likes}</CommentLikes>
         {this.props.post.comments.map(comment => (
           <Comment
             key={comment.text}
@@ -26,7 +42,7 @@ class CommentSection extends React.Component {
             type="text"
             placeholder="Add a comment..." />
         </form>
-      </div>
+      </CommentSectionContainer>
     )
   }
 }

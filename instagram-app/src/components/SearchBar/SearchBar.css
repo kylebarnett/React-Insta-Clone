@@ -10,15 +10,16 @@
   align-items: center;
 }
 
+.instagram-logo {
+  max-width: auto;
+  height: 50px;
+}
+
 .input {
   text-align: center;
   margin-left: 65px;
 }
 
-.instagram-logo {
-  max-width: auto;
-  height: 50px;
-}
 
 .icon-container {
   display: flex;

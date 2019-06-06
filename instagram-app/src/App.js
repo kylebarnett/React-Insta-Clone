@@ -57,21 +57,23 @@ class App extends React.Component {
     })
   }
 
-  // filterUsername = e => {
-  //   e.preventDefault();
-  //   this.setState({
-  //     search: '',
-  //     posts: this.state.posts.filter((post, index) => {
-  //       return post.username = this.state.search
-  //     })
-  //   })
-  // }
+  filterUsername = e => {
+    e.preventDefault();
+    const filtered = this.state.posts.filter(post => {
+      return post.username === this.state.search
+    })
+    this.setState({
+      search: '',
+      posts: filtered
+    })
+  }
   render() {
     return (
       <div className="App">
         <ComponentFromWithAuthenticate
           posts={this.state.posts}
           handleChange={this.handleChange}
+          filterUsername={this.filterUsername}
           addNewComment={this.addNewComment}
           text={this.state.text}
           heartIncrement={this.heartIncrement}

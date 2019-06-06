@@ -7,7 +7,7 @@ const PostsPage = props => {
     <div>
       <SearchBar
         index={props.index}
-        // filterUsername={props.filterUsername}
+        filterUsername={props.filterUsername}
         search={props.search}
         handleChange={props.handleChange}
       />

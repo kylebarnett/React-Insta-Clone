@@ -1,19 +1,31 @@
 import React from 'react';
 import './CommentSection.css';
+import styled from 'styled-components';
+
+const Comments = styled.div`
+  display: flex
+`;
+
+const SingleUsername = styled.p`
+  margin-right: 5px;
+  font-weight: bold;
+  color: navy;
+  font-size: 14px;
+`;
+
+const SingleText = styled.p`
+  font-size: 14px;
+`;
 
 class Comment extends React.Component {
   render() {
     return (
-      <div className="comments">
-        <p className="single-username">{this.props.comment.username}</p>
-        <p className="single-text">{this.props.comment.text}</p>
-      </div>
+      <Comments>
+        <SingleUsername>{this.props.comment.username}</SingleUsername>
+        <SingleText>{this.props.comment.text}</SingleText>
+      </Comments>
     )
   }
 }
-
-// Comment.propTypes = {
-//   comment: PropTypes.arrayOf(PropTypes.string)
-// }
 
 export default Comment
